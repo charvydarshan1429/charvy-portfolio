@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Kaila Charvy — Electrical & Electronics Engineering student portfolio." />
-  <title>Charvy — Portfolio</title>
+  <title>Kaila Charvy — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 
   <header class="nav-wrap">
     <nav class="nav">
-      <a href="#home" class="logo">CHARVY<span>.</span></a>
+      <a href="#home" class="logo">KC<span>.</span></a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -23,15 +23,9 @@
         <a href="#journey">Journey</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="nav-tools">
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Dark / Light mode">☾</button>
-        <button class="palette-toggle" type="button" aria-label="Change accent colour" title="Change accent colour">✦</button>
-        <div class="palette-menu" aria-hidden="true">
-          <button type="button" data-theme="cherry">Cherry</button>
-          <button type="button" data-theme="blue">Electric Blue</button>
-          <button type="button" data-theme="green">Emerald</button>
-          <button type="button" data-theme="violet">Violet</button>
-        </div>
+      <div class="site-controls" aria-label="Site appearance controls">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">☾</button>
+        <button type="button" class="palette-toggle" id="paletteToggle" aria-label="Change accent colour" title="Change accent colour">◉</button>
       </div>
       <a class="nav-cta" href="#contact">Let's connect <span>↗</span></a>
       <button class="menu-btn" aria-label="Open menu">☰</button>
@@ -42,8 +36,7 @@
     <section class="hero section">
       <div class="hero-copy reveal">
         <p class="eyebrow"><span class="dot"></span> Electrical & Electronics Engineering</p>
-        <h1>Hi, I'm <span>Charvy</span>.<br> I build with <em>curiosity.</em></h1>
-        <div class="hero-meta"><span class="reg-chip">REG. 2024103383</span><span class="status-chip">EEE • NIT NAGALAND</span></div>
+        <h1>Hi, I'm <span>Kaila</span>.<br> I build with <em>curiosity.</em></h1>
         <p class="hero-text">
           Engineering student at NIT Nagaland, interested in electrical systems,
           robotics, cybersecurity and turning ideas into practical projects.
@@ -66,7 +59,7 @@
         </div>
         <div class="card-bottom">
           <div>
-            <strong>Charvy</strong>
+            <strong>Kaila Charvy</strong>
             <span>EEE • NIT Nagaland</span>
           </div>
           <span class="availability"><i></i> Open to opportunities</span>
@@ -76,9 +69,9 @@
 
     <section class="marquee">
       <div class="marquee-track">
-        <span>ROBOTICS</span><b>✦</b>
+        <span>ENGINEERING</span><b>✦</b><span>ROBOTICS</span><b>✦</b>
         <span>CYBERSECURITY</span><b>✦</b><span>MATLAB</span><b>✦</b>
-        <span>CREATIVE THINKING</span><b>✦</b>
+        <span>CREATIVE THINKING</span><b>✦</b><span>ENGINEERING</span><b>✦</b>
         <span>ROBOTICS</span><b>✦</b><span>CYBERSECURITY</span><b>✦</b>
       </div>
     </section>
@@ -164,29 +157,30 @@
           <p>Leadership • Communication • Teamwork • Time Management</p>
         </article>
       </div>
+    </section>
 
-      <div class="tools-lab reveal">
-        <div class="tools-lab-head">
-          <div>
-            <p class="kicker">My working toolkit</p>
-            <h3>Tools I <em>actually use.</em></h3>
-          </div>
-          <span class="tools-note">Tap, hover & explore</span>
+    <section id="tools" class="section tools-showcase">
+      <div class="section-label reveal">02.5 / Tools I use</div>
+      <div class="tools-intro reveal">
+        <div>
+          <p class="kicker">My working toolkit</p>
+          <h2>The tools I use to <em>turn ideas into things.</em></h2>
         </div>
-        <div class="tool-grid">
-          <span class="tool-pill">MATLAB</span>
-          <span class="tool-pill">Simulink</span>
-          <span class="tool-pill">Multisim</span>
-          <span class="tool-pill">Canva</span>
-          <span class="tool-pill">CapCut</span>
-          <span class="tool-pill">PowerPoint</span>
-          <span class="tool-pill">MS Word</span>
-          <span class="tool-pill">Excel</span>
-          <span class="tool-pill">Google Colab</span>
-          <span class="tool-pill">FreeCAD</span>
-          <span class="tool-pill">Python</span>
-          <span class="tool-pill">Flutter / Dart</span>
-        </div>
+        <p>A practical mix of engineering software, creative tools and development platforms I use across projects, presentations and experiments.</p>
+      </div>
+      <div class="tool-cloud">
+        <span class="tool-chip reveal">MATLAB</span>
+        <span class="tool-chip reveal delay-1">Simulink</span>
+        <span class="tool-chip reveal delay-2">Multisim</span>
+        <span class="tool-chip reveal">Canva</span>
+        <span class="tool-chip reveal delay-1">CapCut</span>
+        <span class="tool-chip reveal delay-2">PowerPoint</span>
+        <span class="tool-chip reveal">MS Word</span>
+        <span class="tool-chip reveal delay-1">Excel</span>
+        <span class="tool-chip reveal delay-2">Google Colab</span>
+        <span class="tool-chip reveal">FreeCAD</span>
+        <span class="tool-chip reveal delay-1">Python</span>
+        <span class="tool-chip reveal delay-2">Flutter / Dart</span>
       </div>
     </section>
 
@@ -243,6 +237,59 @@
           <div class="project-mark">VS<br><small>03</small></div>
         </article>
       </div>
+
+      <div class="project-bay reveal" id="project-bay">
+        <div class="bay-head">
+          <div>
+            <p class="kicker">Interactive project bay</p>
+            <h3>Small things I like to <em>make move.</em></h3>
+          </div>
+          <span class="bay-hint">Tap the projects</span>
+        </div>
+
+        <div class="bay-grid">
+          <article class="bay-card rc-bay" data-rc-card tabindex="0">
+            <div class="bay-label"><span>01</span><span>ROBOTICS</span></div>
+            <div class="road">
+              <div class="road-line"></div>
+              <div class="mini-car" data-mini-car aria-hidden="true">
+                <i class="car-body"></i><i class="car-top"></i><i class="wheel w1"></i><i class="wheel w2"></i>
+              </div>
+              <span class="smoke s1"></span><span class="smoke s2"></span><span class="smoke s3"></span>
+            </div>
+            <h4>RC Car</h4>
+            <p>Tap to send the car for a little drive — then it parks back in its original spot.</p>
+            <button type="button" class="bay-action">Drive it ↗</button>
+          </article>
+
+          <article class="bay-card printer-bay" data-printer-card tabindex="0">
+            <div class="bay-label"><span>02</span><span>3D PRINTING</span></div>
+            <div class="printer-stage">
+              <div class="printer">
+                <div class="printer-top"></div><div class="printer-window"><span class="print-head"></span></div>
+                <div class="printer-bed"></div><div class="printer-cherry" data-printer-cherry></div>
+              </div>
+              <div class="sparkle sp1">✦</div><div class="sparkle sp2">✦</div><div class="sparkle sp3">✦</div>
+            </div>
+            <h4>3D Printing</h4>
+            <p>Tap to print a tiny cherry-inspired piece with a little sparkle.</p>
+            <button type="button" class="bay-action">Print cherry ↗</button>
+          </article>
+
+          <article class="bay-card factory-bay" data-factory-card tabindex="0">
+            <div class="bay-label"><span>03</span><span>INDUSTRIAL</span></div>
+            <div class="factory-stage">
+              <div class="factory">
+                <div class="factory-body"></div><div class="factory-roof"></div><i></i><i></i><i></i>
+              </div>
+              <div class="steel-rod rod1"></div><div class="steel-rod rod2"></div><div class="steel-rod rod3"></div>
+            </div>
+            <h4>Industrial Systems</h4>
+            <p>Tap to release a small set of steel rods from the factory — contained inside the card.</p>
+            <button type="button" class="bay-action">Run system ↗</button>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section id="journey" class="section journey">
@@ -275,8 +322,6 @@
             <li>Secretary — Chroma & Publications Club</li>
             <li>Class Representative — EEE Branch</li>
             <li>Member — IEEE</li>
-            <li>Volunteer — IEEE Conference, NIT Nagaland</li>
-            <li>Volunteer — Science Exhibition, NIT Nagaland</li>
           </ul>
         </div>
         <div class="mini-section reveal delay-1">
@@ -286,18 +331,6 @@
             <li>3D Printing Workshop — NIT Nagaland</li>
             <li>Cybersecurity Threat Detection — ongoing training</li>
           </ul>
-        </div>
-      </div>
-
-
-
-      <div class="participation-card reveal">
-        <div class="participation-mark">AI<br><small>SAKSHAM</small></div>
-        <div>
-          <p class="kicker">Participation / 2026</p>
-          <h3>Agentic AI Saksham</h3>
-          <p>Participated in a 3-day Agentic AI Saksham program at <strong>Kohima Science College, Jotsoma</strong>, 7–9 May 2026.</p>
-          <span class="participation-badge">PARTICIPATION</span>
         </div>
       </div>
 
@@ -318,14 +351,28 @@
       </div>
     </section>
 
-
+    <section class="section participation">
+      <div class="section-label reveal">05 / Participation</div>
+      <div class="participation-card reveal">
+        <div class="participation-mark">AI</div>
+        <div>
+          <p class="kicker">Participation</p>
+          <h2>Agentic AI <em>Saksham.</em></h2>
+          <p>3-day Agentic AI program • 7–9 May 2026</p>
+          <p>Kohima Science College, Jotsoma, Nagaland</p>
+        </div>
+        <span class="participation-badge">PARTICIPATED</span>
+      </div>
+    </section>
 
     <section class="resume-cta section reveal">
       <div>
         <p class="kicker">Want the full picture?</p>
         <h2>Take my résumé<br><em>with you.</em></h2>
       </div>
-      <a class="btn btn-dark resume-btn" href="Charvy_Resume.pdf" download>Download résumé <span>↓</span></a>
+      <a class="resume-button" href="Charvy_Resume.pdf" download="Charvy_Resume.pdf">
+        Download Résumé <span>↓</span>
+      </a>
     </section>
 
     <section id="contact" class="contact">
@@ -342,11 +389,18 @@
   </main>
 
   <footer>
-    <span>© 2026 Charvy</span>
+    <span>© 2026 Kaila Charvy</span>
     <span>Electrical & Electronics Engineering</span>
     <a href="#home">Back to top ↑</a>
   </footer>
 
+  <div class="palette-panel" id="palettePanel" aria-hidden="true">
+    <span>ACCENT</span>
+    <button data-theme="cherry" aria-label="Cherry red"></button>
+    <button data-theme="blue" aria-label="Electric blue"></button>
+    <button data-theme="green" aria-label="Emerald green"></button>
+    <button data-theme="violet" aria-label="Violet"></button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,22 +1,10 @@
-CHARVY PORTFOLIO — ENHANCED
-=============================
-Files:
-- index.html
-- style.css
-- script.js
-- Charvy_Resume.pdf
+Charvy Portfolio — Additive Enhanced Build
 
-Open index.html in a browser to preview locally.
-GitHub Pages:
-git add .
-git commit -m "Enhance portfolio"
-git push
-
-Included:
-- Separate Tools I Use section
+This build uses the uploaded portfolio as its base and adds:
+- Tools I Use section: MATLAB, Simulink, Multisim, Canva, CapCut, PowerPoint, MS Word, Excel, Google Colab, FreeCAD, Python, Flutter/Dart
 - Secretary — Chroma & Publications Club
-- Agentic AI Saksham participation (text-only, no certificate image)
+- Agentic AI Saksham participation card (text only; no certificate image)
 - Dark/light mode
 - Accent colour selector with saved preference
-- Resume download button
-- Existing portfolio content preserved
+- Interactive RC car, 3D-printing cherry, and contained factory rod animations
+- Downloadable Charvy_Resume.pdf

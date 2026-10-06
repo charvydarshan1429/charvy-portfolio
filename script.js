@@ -43,44 +43,109 @@ document.querySelectorAll('.skill-card, .project, .hero-card').forEach(card => {
   });
 });
 
-/* ===== CHARVY USER CONTROLS ===== */
+/* ===== CHARVY ADDITIVE INTERACTIONS ===== */
 (() => {
+  const root = document.documentElement;
   const body = document.body;
-  const modeBtn = document.querySelector('.theme-toggle');
-  const paletteBtn = document.querySelector('.palette-toggle');
-  const palette = document.querySelector('.palette-menu');
+  const themeToggle = document.getElementById('themeToggle');
+  const paletteToggle = document.getElementById('paletteToggle');
+  const palettePanel = document.getElementById('palettePanel');
 
-  const savedMode = localStorage.getItem('charvy-mode');
-  const savedTheme = localStorage.getItem('charvy-theme');
-  if (savedMode === 'dark') body.classList.add('dark');
-  if (savedTheme) body.dataset.theme = savedTheme;
+  const themes = {
+    cherry: '#a12b2b',
+    blue: '#1677b8',
+    green: '#2b7a58',
+    violet: '#7850a8'
+  };
 
-  function updateModeIcon(){
-    if(modeBtn) modeBtn.textContent = body.classList.contains('dark') ? '☀' : '☾';
+  function applyAccent(name) {
+    const color = themes[name] || themes.cherry;
+    const rgb = color.replace('#','').match(/.{2}/g).map(v => parseInt(v,16)).join(',');
+    root.style.setProperty('--accent', color);
+    root.style.setProperty('--accent-rgb', rgb);
+    localStorage.setItem('charvy-accent', name);
   }
-  updateModeIcon();
 
-  modeBtn?.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    localStorage.setItem('charvy-mode', body.classList.contains('dark') ? 'dark' : 'light');
-    updateModeIcon();
+  function applyMode(dark) {
+    body.classList.toggle('dark-mode', dark);
+    if (themeToggle) {
+      themeToggle.textContent = dark ? '☀' : '☾';
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    localStorage.setItem('charvy-dark', dark ? '1' : '0');
+  }
+
+  applyAccent(localStorage.getItem('charvy-accent') || 'cherry');
+  applyMode(localStorage.getItem('charvy-dark') === '1');
+
+  themeToggle?.addEventListener('click', () => applyMode(!body.classList.contains('dark-mode')));
+  paletteToggle?.addEventListener('click', () => {
+    const open = palettePanel.classList.toggle('open');
+    palettePanel.setAttribute('aria-hidden', String(!open));
   });
 
-  paletteBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    palette?.classList.toggle('open');
-    palette?.setAttribute('aria-hidden', palette?.classList.contains('open') ? 'false' : 'true');
-  });
-
-  document.querySelectorAll('[data-theme]').forEach(btn => {
+  palettePanel?.querySelectorAll('[data-theme]').forEach(btn => {
     btn.addEventListener('click', () => {
-      body.dataset.theme = btn.dataset.theme;
-      localStorage.setItem('charvy-theme', btn.dataset.theme);
-      palette?.classList.remove('open');
-      palette?.setAttribute('aria-hidden','true');
+      applyAccent(btn.dataset.theme);
+      palettePanel.classList.remove('open');
+      palettePanel.setAttribute('aria-hidden', 'true');
     });
   });
-  document.addEventListener('click', (e) => {
-    if(!palette?.contains(e.target) && e.target !== paletteBtn) palette?.classList.remove('open');
+
+  document.addEventListener('click', e => {
+    if (palettePanel?.classList.contains('open') &&
+        !palettePanel.contains(e.target) && !paletteToggle?.contains(e.target)) {
+      palettePanel.classList.remove('open');
+      palettePanel.setAttribute('aria-hidden', 'true');
+    }
   });
+
+  // RC car: one real car, short drive, then exact return.
+  const rc = document.querySelector('[data-rc-card]');
+  if (rc) {
+    const runCar = () => {
+      if (rc.classList.contains('drive')) return;
+      rc.classList.add('drive');
+      setTimeout(() => rc.classList.remove('drive'), 2100);
+    };
+    rc.addEventListener('click', e => {
+      if (!e.target.closest('button')) runCar();
+    });
+    rc.querySelector('.bay-action')?.addEventListener('click', e => {
+      e.stopPropagation(); runCar();
+    });
+    rc.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); runCar(); }
+    });
+  }
+
+  const printer = document.querySelector('[data-printer-card]');
+  if (printer) {
+    const print = () => {
+      printer.classList.remove('printing');
+      void printer.offsetWidth;
+      printer.classList.add('printing');
+      setTimeout(() => printer.classList.remove('printing'), 1500);
+    };
+    printer.addEventListener('click', e => { if (!e.target.closest('button')) print(); });
+    printer.querySelector('.bay-action')?.addEventListener('click', e => { e.stopPropagation(); print(); });
+    printer.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); print(); }
+    });
+  }
+
+  const factory = document.querySelector('[data-factory-card]');
+  if (factory) {
+    const runFactory = () => {
+      factory.classList.remove('running');
+      void factory.offsetWidth;
+      factory.classList.add('running');
+      setTimeout(() => factory.classList.remove('running'), 1500);
+    };
+    factory.addEventListener('click', e => { if (!e.target.closest('button')) runFactory(); });
+    factory.querySelector('.bay-action')?.addEventListener('click', e => { e.stopPropagation(); runFactory(); });
+    factory.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); runFactory(); }
+    });
+  }
 })();
